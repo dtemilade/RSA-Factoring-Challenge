@@ -16,17 +16,18 @@ def myfac2():
             for retval in myval:
                 retval = int(retval)
                 if retval % 2 == 0:
-                    print("{}={}*{}".format(retval, retval // 2, 2))
+                    print("{:.0f}={:.0f}*{:.0f}".format(retval, retval / 2, 2))
                     continue
 
                 testval = 3
-                while testval < retval // 2:
+                while testval < retval / 2:
                     if retval % testval == 0:
-                        print("{}={}*{}".format(retval, retval // testval, testval))
+                        print("{:.0f}={:.0f}*{:.0f}".format(retval,
+                        retval / testval, testval))
                         break
                     testval = testval + 2
-                if testval == (retval // 2) + 1:
-                    print("{}={}*{}".format(retval, retval, 1))
+                if testval == (retval / 2) + 1:
+                    print("{:.0f}={:.0f}*{:.0f}".format(retval, retval, 1))
 
-    except (IndexError):
+    except (IndexError, FileNotFoundError):
         pass
