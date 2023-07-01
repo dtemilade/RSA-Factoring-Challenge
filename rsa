@@ -1,0 +1,32 @@
+#!/usr/bin/python3
+"""Prototype function that determine number to factorize
+    With only one number in the files
+    """
+
+import sys
+
+
+
+def myfac2():
+
+    """Conditional statement for the function and exception handling"""
+    try:
+        targets = sys.argv[1]
+        with open(targets) as myval:
+            for retval in myval:
+                retval = int(retval)
+                if retval % 2 == 0:
+                    print("{}={}*{}".format(retval, retval // 2, 2))
+                    continue
+
+                testval = 3
+                while testval < retval // 2:
+                    if retval % testval == 0:
+                        print("{}={}*{}".format(retval, retval // testval, testval))
+                        break
+                    testval = testval + 2
+                if testval == (retval // 2) + 1:
+                    print("{}={}*{}".format(retval, retval, 1))
+
+    except (IndexError):
+        pass

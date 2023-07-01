@@ -1,0 +1,39 @@
+#!/usr/bin/python3
+"""Prototype function that factorize numbers
+    as possible into a product of two smaller numbers.
+    """
+
+from sys import argv
+
+
+def myfac(test):
+    """inroducing variable into the function"""
+    testval = 2
+
+    """Conditional statement for the function"""
+    if test < 2:
+        return
+    print()
+    print(test, "== index")
+    while test % testval:
+        testval = testval + 1
+
+    """Outputs while the condition remains true"""
+    print("{:.0f}={:.0f}*{:.0f}".format(test, test / testval, testval))
+    print(test, "== retval")
+    print()
+
+"""Condition to exit and exception handling"""
+if len(argv) != 2:
+    exit()
+
+try:
+    with open(argv[1]) as file:
+        x = file.readx()
+
+        while x != "":
+            test = int(x.split('\n')[0])
+            myfac(test)
+            x = file.readx()
+except:
+    pass
